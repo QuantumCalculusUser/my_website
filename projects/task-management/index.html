@@ -4,13 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Management App</title>
-    <link rel="stylesheet" href="style.css">
+    <script>
+        (() => {
+            const themeStorageKey = 'universalPreferredTheme';
+            const savedTheme = localStorage.getItem(themeStorageKey) || 'default';
+            const effectiveTheme = savedTheme === 'default'
+                ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+                : savedTheme;
+            const root = document.documentElement;
+            root.classList.add('theme-preload');
+            root.dataset.theme = savedTheme;
+            root.classList.toggle('theme-light', effectiveTheme === 'light');
+            root.classList.toggle('theme-dark', effectiveTheme === 'dark');
+        })();
+    </script>
+    <link rel="stylesheet" href="../../globals.css">
+    <link rel="stylesheet" href="../../universal.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
         <h1>Task Management App</h1>
         <nav>
-            <a href="../../main.html">Back to Portfolio</a>
+            <a href="../../index.html">Back to Portfolio</a>
         </nav>
     </header>
 
@@ -37,6 +53,7 @@
         </section>
     </main>
 
-    <script src="script.js"></script>
+    <script src="index.js"></script>
+    <script src="../../universal.js" defer></script>
 </body>
 </html>
