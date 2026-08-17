@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Shared header and theme styles are applied by main.css */
+
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+#calculator{
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+}
+
+#the_display{
+    border: 1px solid black;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+
+}
+
+#input_panal{
+    border: 1px solid blue;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+
+}
+
+.input_number_calculator{
+    border: solid gray;
+}

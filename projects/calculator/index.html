@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Website</title>
+    <script>
+        (() => {
+            const themeStorageKey = 'universalPreferredTheme';
+            const savedTheme = localStorage.getItem(themeStorageKey) || 'default';
+            const effectiveTheme = savedTheme === 'default'
+                ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+                : savedTheme;
+            const root = document.documentElement;
+            root.classList.add('theme-preload');
+            root.dataset.theme = savedTheme;
+            root.classList.toggle('theme-light', effectiveTheme === 'light');
+            root.classList.toggle('theme-dark', effectiveTheme === 'dark');
+        })();
+    </script>
+    <link rel="stylesheet" href="../../globals.css">
+    <link rel="stylesheet" href="../../universal.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Calculator</h1>
+        <nav>
+            <a href="../../index.html">Back to Portfolio</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="calculator">
+            <h2>Simple Calculator</h2>
+            <div id="the_display"></div>
+            <div id="input_panal">
+                <div id="input_for_1" class="input_number_calculator">1</div>
+                <div id="input_for_2" class="input_number_calculator">2</div>
+                <div id="input_for_3" class="input_number_calculator">3</div>
+                <div id="input_for_4" class="input_number_calculator">4</div>
+                <div id="input_for_5" class="input_number_calculator">5</div>
+                <div id="input_for_6" class="input_number_calculator">6</div>
+                <div id="input_for_7" class="input_number_calculator">7</div>
+                <div id="input_for_8" class="input_number_calculator">8</div>
+                <div id="input_for_9" class="input_number_calculator">9</div>
+                <div id="input_for_0" class="input_number_calculator">0</div>
+            </div>
+        </section>
+    </main>
+
+    <script src="index.js"></script>
+    <script src="../../universal.js" defer></script>
+</body>
+</html>
